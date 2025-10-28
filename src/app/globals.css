@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  @apply bg-white text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at 20% 20%, rgba(108, 74, 224, 0.2), transparent 60%),
+    conic-gradient(from 180deg at 50% 50%, rgba(108, 74, 224, 0.12), transparent 50%);
+}
+
+.dark .hero-gradient {
+  background: radial-gradient(circle at 20% 20%, rgba(108, 74, 224, 0.35), transparent 60%),
+    conic-gradient(from 180deg at 50% 50%, rgba(108, 74, 224, 0.2), transparent 58%);
+}
+
+.glass-panel {
+  @apply rounded-3xl border border-white/10 bg-white/60 backdrop-blur-xl shadow-xl;
+}
+
+.dark .glass-panel {
+  background-color: rgba(15, 23, 42, 0.7);
+  border-color: rgba(148, 163, 184, 0.18);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.45);
+}
+
+.mask-gradient {
+  mask-image: radial-gradient(circle at top, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at top, black 60%, transparent 100%);
+}
+
+.section-label {
+  @apply inline-flex items-center gap-2 rounded-full bg-brand-secondary/60 px-4 py-1 text-sm font-medium text-brand-primary dark:bg-brand-secondary/20 dark:text-brand-primary/90;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, #6c4ae0 0%, #8e5efc 50%, #ffb347 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.shiny-border {
+  position: relative;
+}
+
+.shiny-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(108, 74, 224, 0.45), rgba(255, 179, 71, 0.45));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.dark .shiny-border::after {
+  opacity: 0.7;
+}
+
+[data-shimmer] {
+  position: relative;
+  overflow: hidden;
+}
+
+[data-shimmer]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  translate: -100% 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.48), transparent);
+  animation: shimmer 2.75s infinite;
+}
+
+.gradient-ring {
+  position: relative;
+}
+
+.gradient-ring::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(140deg, rgba(108, 74, 224, 0.55), rgba(255, 179, 71, 0.35));
+  opacity: 0.6;
+}
+
+.dark .gradient-ring::after {
+  opacity: 0.8;
+}
+
+@layer base {
+  h1 {
+    @apply font-display;
+  }
+
+  h2, h3, h4 {
+    @apply font-serif;
+  }
+}
