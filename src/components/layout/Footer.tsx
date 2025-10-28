@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const footerLinks = [
   {
     heading: "Product",
@@ -45,15 +43,15 @@ export function Footer() {
             and accelerate revenue.
           </p>
           <div className="flex flex-wrap gap-4 text-xs text-slate-500">
-            <Link href="#" className="hover:text-white">
+            <a href="#" className="hover:text-white">
               Terms
-            </Link>
-            <Link href="#" className="hover:text-white">
+            </a>
+            <a href="#" className="hover:text-white">
               Privacy
-            </Link>
-            <Link href="mailto:hello@digiquiz.fun" className="hover:text-white">
+            </a>
+            <a href="mailto:hello@digiquiz.fun" className="hover:text-white">
               hello@digiquiz.fun
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -66,9 +64,9 @@ export function Footer() {
               <ul className="space-y-3 text-sm text-slate-400">
                 {group.items.map((item) => (
                   <li key={item.label}>
-                    <Link href={item.href} className="transition hover:text-white">
+                    <a href={item.href} className="transition hover:text-white">
                       {item.label}
-                    </Link>
+                    </a>
                   </li>
                 ))}
               </ul>
