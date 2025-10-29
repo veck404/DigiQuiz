@@ -27,7 +27,9 @@ export function Testimonial() {
           </div>
 
           <div className="space-y-4 rounded-3xl bg-white/70 p-6 shadow-[0_16px_40px_rgba(26,16,51,0.12)] backdrop-blur dark:bg-slate-900/80 dark:shadow-[0_20px_50px_rgba(2,6,23,0.6)]">
-            <p className="text-lg font-medium text-slate-800 dark:text-slate-100">"{primary.quote}"</p>
+            <p className="text-lg font-medium text-slate-800 dark:text-slate-100">
+              &ldquo;{primary.quote}&rdquo;
+            </p>
             <p className="text-sm text-slate-500 dark:text-slate-300">
               {primary.name}
               <br />

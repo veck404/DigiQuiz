@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Sun, X } from "lucide-react";
@@ -25,24 +24,24 @@ export function Header() {
       className="fixed inset-x-0 top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-xl transition-colors duration-300 dark:border-white/10 dark:bg-slate-950/80"
     >
       <div className="container flex h-20 items-center justify-between">
-        <Link href="#hero" className="flex items-center gap-3">
+        <a href="#hero" className="flex items-center gap-3">
           <div className="gradient-ring grid h-11 w-11 place-content-center rounded-2xl bg-white shadow-lg dark:bg-slate-900">
             <span className="text-xl font-bold text-brand-primary">DQ</span>
           </div>
           <span className="font-display text-lg font-semibold tracking-tight text-slate-900 dark:text-white">
             DigiQuiz
           </span>
-        </Link>
+        </a>
 
         <nav className="hidden items-center gap-10 text-sm font-medium text-slate-600 md:flex dark:text-slate-300">
           {navItems.map((item) => (
-            <Link
+            <a
               key={item.href}
               href={item.href}
               className="transition hover:text-brand-primary"
             >
               {item.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -60,12 +59,12 @@ export function Header() {
             )}
             <span className="sr-only">{isDark ? "Light mode" : "Dark mode"}</span>
           </button>
-          <Link
+          <a
             href="#waitlist"
             className="rounded-full bg-slate-900 px-6 py-2 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(108,74,224,0.25)] transition hover:bg-brand-primary dark:bg-brand-primary"
           >
             Join waitlist
-          </Link>
+          </a>
         </div>
 
         <button
@@ -88,14 +87,14 @@ export function Header() {
             >
               <div className="flex flex-col divide-y divide-slate-100 dark:divide-white/10">
                 {navItems.map((item) => (
-                  <Link
+                  <a
                     key={item.href}
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="px-6 py-4 text-sm font-semibold text-slate-700 hover:bg-slate-50 dark:text-slate-200 dark:hover:bg-slate-800"
                   >
                     {item.label}
-                  </Link>
+                  </a>
                 ))}
                 <button
                   type="button"
@@ -111,13 +110,13 @@ export function Header() {
                     <span className="h-2 w-2 rounded-full bg-slate-300 dark:bg-slate-600" />
                   )}
                 </button>
-                <Link
+                <a
                   href="#waitlist"
                   onClick={() => setOpen(false)}
                   className="px-6 py-4 text-sm font-semibold text-brand-primary"
                 >
                   Join waitlist
-                </Link>
+                </a>
               </div>
             </motion.nav>
           ) : null}
