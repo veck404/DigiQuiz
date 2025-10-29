@@ -52,8 +52,8 @@ export function Hero() {
       id="hero"
       className="hero-gradient relative isolate overflow-hidden pb-24 pt-36 sm:pt-40 lg:pt-48"
     >
-      {/* Background gradient effect */}
-      <div className="absolute inset-x-0 top-16 -z-10 h-[520px] bg-gradient-to-r from-brand-primary/18 via-brand-primary/14 to-transparent blur-3xl dark:from-brand-primary/24 dark:via-brand-primary/14 dark:to-transparent" />
+      {/* Background gradient that softly blends the text area into the illustration side */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-primary/18 via-brand-primary/12 to-transparent blur-3xl dark:from-brand-primary/28 dark:via-brand-primary/14 dark:to-transparent" />
 
       <div className="container relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         {/* Left column: Text content */}
