@@ -139,8 +139,8 @@ export function Hero() {
               style={{ height: "10%" }}
             />
             <div
-              className="absolute left-1/2 bottom-[4%] w-[86%] max-w-lg -translate-x-1/2 overflow-hidden rounded-2xl bg-white/85 px-5 py-3 text-sm text-slate-700 shadow-lg dark:bg-slate-950/85 dark:text-slate-200"
-              style={{ maxHeight: "10%" }}
+              className="absolute left-1/2 w-[86%] max-w-lg -translate-x-1/2 overflow-hidden rounded-2xl bg-white/40 px-5 py-3 text-sm text-slate-700 shadow-lg backdrop-blur-sm dark:bg-slate-950/40 dark:text-slate-200"
+              style={{ bottom: "-70%", maxHeight: "10%" }}
             >
               <p className="font-semibold text-slate-900 dark:text-white">Guided learning journeys</p>
               <p className="text-xs text-slate-500 dark:text-slate-300">
