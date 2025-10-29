@@ -53,7 +53,7 @@ export function Hero() {
       className="hero-gradient relative isolate overflow-hidden pb-24 pt-36 sm:pt-40 lg:pt-48"
     >
       {/* Background gradient effect */}
-      <div className="absolute inset-x-0 top-16 -z-10 h-[520px] bg-gradient-to-br from-brand-primary/18 via-brand-primary/10 to-transparent blur-3xl dark:from-brand-primary/25 dark:via-brand-primary/12 dark:to-transparent" />
+      <div className="absolute inset-x-0 top-16 -z-10 h-[520px] bg-gradient-to-r from-brand-primary/18 via-brand-primary/14 to-transparent blur-3xl dark:from-brand-primary/24 dark:via-brand-primary/14 dark:to-transparent" />
 
       <div className="container relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         {/* Left column: Text content */}
