@@ -166,7 +166,7 @@ export function Hero() {
             {/* Floating card with additional information */}
             <div
               className="absolute left-1/2 w-[86%] max-w-lg -translate-x-1/2 overflow-hidden rounded-2xl bg-white/40 px-5 py-3 text-sm text-slate-700 shadow-lg backdrop-blur-sm dark:bg-slate-950/40 dark:text-slate-200"
-              style={{ bottom: "-10%", maxHeight: "10%" }}
+              style={{ bottom: "-12%", maxHeight: "15%" }}
             >
               <p className="font-semibold text-slate-900 dark:text-white">Guided learning journeys</p>
               <p className="text-xs text-slate-500 dark:text-slate-300">
