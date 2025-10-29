@@ -155,7 +155,7 @@ export function Hero() {
               loop
               autoplay
               className="w-full h-auto"
-              style={{ maxHeight: "640px" }}
+              style={{ maxHeight: "740px" }}
               aria-label="Animated illustration of a student immersed in learning"
             />
             {/* Gradient overlay to fade the bottom of the animation */}
