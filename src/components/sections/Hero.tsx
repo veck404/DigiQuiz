@@ -4,7 +4,9 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import gsap from "gsap";
-import heroAnimation from "@/data/animations/quiz-burst.json";
+import bookAnimation from "@/data/animations/education-book.json";
+import lightbulbAnimation from "@/data/animations/education-lightbulb.json";
+import certificateAnimation from "@/data/animations/education-certificate.json";
 
 const heroHighlights = [
   { label: "AI-written questions", value: "x10 faster" },
@@ -124,16 +126,67 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="relative flex items-center justify-center"
         >
-          <div className="glass-panel mask-gradient relative aspect-square w-full max-w-[420px] overflow-hidden rounded-[3rem] p-8">
-            <div className="absolute inset-0 -z-10 bg-gradient-to-b from-white/60 via-white/20 to-white/0" />
-            <Lottie animationData={heroAnimation} loop autoplay className="h-full w-full" />
-            <div className="absolute inset-x-6 bottom-6 rounded-2xl bg-white/80 p-4 text-sm text-slate-600 shadow-lg dark:bg-slate-900/70 dark:text-slate-200">
-              <p className="font-semibold text-slate-800 dark:text-slate-100">
-                {`\u201CLet\u2019s make your next campaign unforgettable.\u201D`}
-              </p>
-              <p className="text-xs text-slate-500 dark:text-slate-400">
-                Automate quiz logic, scoring, and follow-up journeys with ease.
-              </p>
+          <div className="absolute -right-12 top-6 hidden h-48 w-48 rounded-full bg-brand-primary/10 blur-3xl lg:block dark:bg-brand-primary/30" />
+          <div className="relative w-full max-w-[460px]">
+            <div className="mask-gradient glass-panel flex flex-col gap-6 rounded-[3rem] bg-white/60 p-8 shadow-[0_24px_55px_rgba(26,16,51,0.15)] backdrop-blur-lg dark:bg-slate-900/70 dark:shadow-[0_30px_70px_rgba(2,6,23,0.7)]">
+              <div className="overflow-hidden rounded-[2.5rem] border border-white/40 bg-white/70 p-6 shadow-lg dark:border-white/10 dark:bg-slate-950/70">
+                <div className="mb-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.3em] text-brand-primary/90 dark:text-brand-primary/70">
+                  <span className="size-1.5 rounded-full bg-brand-primary" aria-hidden="true" />
+                  <span>Ideas ignite action</span>
+                </div>
+                <Lottie
+                  animationData={lightbulbAnimation}
+                  loop
+                  autoplay
+                  className="h-60 w-full"
+                  aria-label="Animated illustration of a glowing idea bulb"
+                />
+                <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">
+                  Spotlight the key takeaways of every lesson with interactive storytelling.
+                </p>
+              </div>
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div className="glass-panel flex items-center gap-4 rounded-3xl border border-white/40 bg-white/80 p-5 shadow-lg dark:border-white/10 dark:bg-slate-950/70">
+                  <div className="h-20 w-20 overflow-hidden rounded-3xl border border-brand-secondary/40 bg-brand-secondary/10 p-4 dark:border-brand-secondary/30 dark:bg-brand-secondary/20">
+                    <Lottie
+                      animationData={bookAnimation}
+                      loop
+                      autoplay
+                      className="h-full w-full"
+                      aria-label="Animated book opening"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                      Personalized study guides
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Deliver tailored practice paths in every quiz journey.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="glass-panel flex items-center gap-4 rounded-3xl border border-white/40 bg-white/80 p-5 shadow-lg dark:border-white/10 dark:bg-slate-950/70">
+                  <div className="h-20 w-20 overflow-hidden rounded-3xl border border-brand-accent/30 bg-brand-accent/10 p-4 dark:border-brand-accent/20 dark:bg-brand-accent/30">
+                    <Lottie
+                      animationData={certificateAnimation}
+                      loop
+                      autoplay
+                      className="h-full w-full"
+                      aria-label="Animated certificate badge"
+                    />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                      Celebrate mastery
+                    </p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                      Award certificates and badges the moment learners level up.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
