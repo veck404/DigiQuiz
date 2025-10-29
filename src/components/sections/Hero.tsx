@@ -124,24 +124,28 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="relative flex items-center justify-center"
         >
-          <div className="absolute -right-16 top-10 hidden h-56 w-56 rounded-full bg-brand-primary/15 blur-3xl lg:block dark:bg-brand-primary/30" />
-          <div className="relative w-full max-w-[520px]">
-            <div className="mask-gradient glass-panel relative overflow-hidden rounded-[3rem] bg-white/70 p-4 shadow-[0_24px_55px_rgba(26,16,51,0.2)] backdrop-blur-lg dark:bg-slate-900/70 dark:shadow-[0_30px_70px_rgba(2,6,23,0.7)]">
-              <Lottie
-                animationData={studentAnimation}
-                loop
-                autoplay
-                className="w-full"
-                style={{ height: "auto" }}
-                aria-label="Animated illustration of a student immersed in learning"
-              />
-              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-white to-transparent dark:from-slate-950" />
-              <div className="absolute inset-x-6 bottom-6 rounded-2xl bg-white/85 p-5 text-sm text-slate-700 shadow-xl dark:bg-slate-950/85 dark:text-slate-200">
-                <p className="font-semibold text-slate-900 dark:text-white">Guided learning journeys</p>
-                <p className="text-xs text-slate-500 dark:text-slate-300">
-                  Walk learners through story-driven quizzes, gentle progress checks, and instant feedback.
-                </p>
-              </div>
+          <div className="absolute -right-20 top-16 hidden h-64 w-64 rounded-full bg-brand-primary/15 blur-3xl lg:block dark:bg-brand-primary/30" />
+          <div className="relative w-full">
+            <Lottie
+              animationData={studentAnimation}
+              loop
+              autoplay
+              className="w-full h-auto"
+              style={{ maxHeight: "640px" }}
+              aria-label="Animated illustration of a student immersed in learning"
+            />
+            <div
+              className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/90 via-white/40 to-transparent dark:from-slate-950/90 dark:via-slate-950/40"
+              style={{ height: "10%" }}
+            />
+            <div
+              className="absolute left-1/2 bottom-[4%] w-[86%] max-w-lg -translate-x-1/2 overflow-hidden rounded-2xl bg-white/85 px-5 py-3 text-sm text-slate-700 shadow-lg dark:bg-slate-950/85 dark:text-slate-200"
+              style={{ maxHeight: "10%" }}
+            >
+              <p className="font-semibold text-slate-900 dark:text-white">Guided learning journeys</p>
+              <p className="text-xs text-slate-500 dark:text-slate-300">
+                Walk learners through story-driven quizzes, gentle progress checks, and instant feedback.
+              </p>
             </div>
           </div>
         </motion.div>
