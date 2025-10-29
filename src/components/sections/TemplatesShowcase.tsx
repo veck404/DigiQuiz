@@ -38,7 +38,7 @@ export function TemplatesShowcase() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6, delay: index * 0.05 }}
-            className="group relative overflow-hidden rounded-[28px] border border-slate-100 bg-white p-6 shadow-[0_18px_45px_rgba(26,16,51,0.08)] transition-colors duration-300 dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_22px_55px_rgba(2,6,23,0.6)]"
+            className="group relative overflow-hidden rounded-[28px] border border-slate-100 bg-white p-6 shadow-[0_18px_45px_rgba(26,16,51,0.08)] transition-transform transition-colors duration-300 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(26,16,51,0.12)] dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_22px_55px_rgba(2,6,23,0.6)] dark:hover:shadow-[0_28px_75px_rgba(2,6,23,0.75)]"
           >
             <div className="absolute inset-0 -z-10 bg-gradient-to-br from-brand-secondary/60 via-white to-white opacity-0 transition group-hover:opacity-100 dark:from-slate-950 dark:via-slate-900/80 dark:to-brand-secondary/20" />
             <div className="flex flex-col gap-3">

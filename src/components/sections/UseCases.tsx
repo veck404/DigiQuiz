@@ -39,7 +39,7 @@ export function UseCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.65, delay: index * 0.06 }}
-              className="group relative overflow-hidden rounded-[32px] border border-slate-200/60 bg-white p-8 shadow-xl shadow-slate-200/40 transition-colors duration-300 dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_22px_55px_rgba(2,6,23,0.6)]"
+              className="group relative overflow-hidden rounded-[32px] border border-slate-200/60 bg-white p-8 shadow-xl shadow-slate-200/40 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:shadow-[0_26px_65px_rgba(26,16,51,0.12)] dark:border-white/10 dark:bg-slate-900 dark:shadow-[0_22px_55px_rgba(2,6,23,0.6)] dark:hover:shadow-[0_28px_75px_rgba(2,6,23,0.75)]"
             >
               <div className="absolute inset-0 -z-10 bg-gradient-to-br from-white via-white to-brand-secondary/30 opacity-0 transition duration-300 group-hover:opacity-100 dark:from-slate-950 dark:via-slate-900/80 dark:to-brand-secondary/20" />
               <div className="flex flex-col gap-5">

@@ -14,7 +14,7 @@ export function AudienceGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ delay: index * 0.05, duration: 0.6, ease: "easeOut" }}
-            className="shiny-border flex flex-col gap-3 rounded-3xl bg-white/70 p-6 transition-colors duration-300 dark:bg-slate-900/80"
+            className="shiny-border flex flex-col gap-3 rounded-3xl bg-white/70 p-6 transition-transform transition-colors duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-slate-900/80"
           >
             <div className="flex items-center gap-2">
               <span className="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-brand-secondary text-sm font-semibold text-brand-primary">

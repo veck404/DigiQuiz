@@ -102,7 +102,7 @@ export function Hero() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el;
                 }}
-                className="glass-panel relative overflow-hidden rounded-2xl border border-white/40 p-5 shadow-lg"
+                className="glass-panel relative overflow-hidden rounded-2xl border border-white/40 p-5 shadow-lg transition-transform duration-300 hover:-translate-y-1 hover:border-white/60 hover:shadow-xl dark:hover:border-white/20"
               >
                 <div className="flex flex-col gap-1 text-slate-950 dark:text-slate-100">
                   <span className="text-xs uppercase tracking-[0.25em] text-slate-500 dark:text-slate-400">

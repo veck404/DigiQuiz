@@ -43,7 +43,7 @@ export function Faqs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: index * 0.03 }}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white transition-colors duration-300 dark:border-white/10 dark:bg-slate-900"
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white transition-transform transition-colors duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-lg dark:border-white/10 dark:bg-slate-900 dark:hover:border-white/20"
               >
                 <button
                   type="button"
