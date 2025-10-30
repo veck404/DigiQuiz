@@ -7,8 +7,8 @@ import { useParallax } from "@/hooks/useParallax";
 export function Testimonial() {
   const [primary] = testimonials;
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [36, -26]);
-  const cardY = useTransform(scrollYProgress, [0, 1], [20, -18]);
+  const glowY = useTransform(scrollYProgress, [0, 1], [24, -18]);
+  const cardY = useTransform(scrollYProgress, [0, 1], [14, -12]);
 
   if (!primary) return null;
 

@@ -6,8 +6,8 @@ import { useParallax } from "@/hooks/useParallax";
 
 export function VideoResources() {
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const accentY = useTransform(scrollYProgress, [0, 1], [42, -36]);
-  const gridY = useTransform(scrollYProgress, [0, 1], [28, -22]);
+  const accentY = useTransform(scrollYProgress, [0, 1], [26, -24]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [16, -12]);
 
   return (
     <section ref={ref} className="container relative overflow-hidden py-24">

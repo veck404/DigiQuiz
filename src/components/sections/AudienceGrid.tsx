@@ -6,8 +6,8 @@ import { useParallax } from "@/hooks/useParallax";
 
 export function AudienceGrid() {
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const orbY = useTransform(scrollYProgress, [0, 1], [48, -32]);
-  const gridY = useTransform(scrollYProgress, [0, 1], [24, -18]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [32, -22]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [18, -14]);
 
   return (
     <section

@@ -8,7 +8,7 @@ import { useParallax } from "@/hooks/useParallax";
 export function Faqs() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const floatY = useTransform(scrollYProgress, [0, 1], [34, -24]);
+  const floatY = useTransform(scrollYProgress, [0, 1], [22, -18]);
 
   return (
     <section

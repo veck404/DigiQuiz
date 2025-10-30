@@ -5,8 +5,8 @@ import { useParallax } from "@/hooks/useParallax";
 
 export function WaitlistCTA() {
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const leftOrbY = useTransform(scrollYProgress, [0, 1], [36, -24]);
-  const rightOrbY = useTransform(scrollYProgress, [0, 1], [48, -32]);
+  const leftOrbY = useTransform(scrollYProgress, [0, 1], [24, -16]);
+  const rightOrbY = useTransform(scrollYProgress, [0, 1], [30, -22]);
 
   return (
     <section id="waitlist" ref={ref} className="container relative overflow-hidden pb-32 pt-24">

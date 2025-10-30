@@ -6,8 +6,8 @@ import { useParallax } from "@/hooks/useParallax";
 
 export function TemplatesShowcase() {
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const bubblesY = useTransform(scrollYProgress, [0, 1], [44, -32]);
-  const gridY = useTransform(scrollYProgress, [0, 1], [26, -20]);
+  const bubblesY = useTransform(scrollYProgress, [0, 1], [30, -22]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [18, -14]);
 
   return (
     <section id="templates" ref={ref} className="container relative overflow-hidden py-24">

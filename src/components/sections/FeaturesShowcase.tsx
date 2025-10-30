@@ -6,9 +6,9 @@ import { useParallax } from "@/hooks/useParallax";
 
 export function FeaturesShowcase() {
   const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
-  const haloY = useTransform(scrollYProgress, [0, 1], [-60, 40]);
-  const headingY = useTransform(scrollYProgress, [0, 1], [18, -18]);
-  const cardsY = useTransform(scrollYProgress, [0, 1], [32, -24]);
+  const haloY = useTransform(scrollYProgress, [0, 1], [-38, 26]);
+  const headingY = useTransform(scrollYProgress, [0, 1], [12, -12]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], [20, -16]);
 
   return (
     <section id="features" ref={ref} className="container relative overflow-hidden py-24">

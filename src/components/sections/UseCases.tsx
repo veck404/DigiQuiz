@@ -6,8 +6,8 @@ import { useParallax } from "@/hooks/useParallax";
 
 export function UseCases() {
   const { ref, scrollYProgress } = useParallax<HTMLElement>(["start end", "end center"]);
-  const ribbonY = useTransform(scrollYProgress, [0, 1], [56, -36]);
-  const cardsY = useTransform(scrollYProgress, [0, 1], [28, -22]);
+  const ribbonY = useTransform(scrollYProgress, [0, 1], [34, -24]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], [18, -14]);
 
   return (
     <section

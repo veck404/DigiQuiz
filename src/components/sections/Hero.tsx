@@ -27,11 +27,11 @@ export function Hero() {
     "start start",
     "end center"
   ]);
-  const backgroundY = useTransform(scrollYProgress, [0, 1], [-160, 120]);
-  const glowY = useTransform(scrollYProgress, [0, 1], [60, -40]);
-  const highlightsY = useTransform(scrollYProgress, [0, 1], [40, -20]);
-  const illustrationY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const floatingNoteY = useTransform(scrollYProgress, [0, 1], [70, -50]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [-110, 80]);
+  const glowY = useTransform(scrollYProgress, [0, 1], [42, -28]);
+  const highlightsY = useTransform(scrollYProgress, [0, 1], [28, -16]);
+  const illustrationY = useTransform(scrollYProgress, [0, 1], [-20, 24]);
+  const floatingNoteY = useTransform(scrollYProgress, [0, 1], [36, -28]);
 
   // Animate the highlight cards into view on component mount.
   useEffect(() => {
