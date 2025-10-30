@@ -1,14 +1,26 @@
 'use client';
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useTransform } from "framer-motion";
 import { faqs } from "@/data/content";
+import { useParallax } from "@/hooks/useParallax";
 
 export function Faqs() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
+  const floatY = useTransform(scrollYProgress, [0, 1], [34, -24]);
 
   return (
-    <section id="faqs" className="bg-slate-50 py-24 transition-colors duration-300 dark:bg-slate-950">
+    <section
+      id="faqs"
+      ref={ref}
+      className="relative overflow-hidden bg-slate-50 py-24 transition-colors duration-300 dark:bg-slate-950"
+    >
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -right-24 bottom-6 -z-10 h-72 w-72 rounded-full bg-brand-primary/15 blur-3xl dark:bg-brand-primary/30"
+        style={{ y: floatY }}
+      />
       <div className="container">
         <div className="mx-auto max-w-2xl text-center">
           <motion.div

@@ -1,10 +1,15 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import { useParallax } from "@/hooks/useParallax";
 
 export function WaitlistCTA() {
+  const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
+  const leftOrbY = useTransform(scrollYProgress, [0, 1], [36, -24]);
+  const rightOrbY = useTransform(scrollYProgress, [0, 1], [48, -32]);
+
   return (
-    <section id="waitlist" className="container pb-32 pt-24">
+    <section id="waitlist" ref={ref} className="container relative overflow-hidden pb-32 pt-24">
       <motion.div
         initial={{ opacity: 0, y: 32 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -12,8 +17,16 @@ export function WaitlistCTA() {
         transition={{ duration: 0.7 }}
         className="relative overflow-hidden rounded-[44px] border border-brand-secondary/80 bg-gradient-to-br from-brand-primary/15 via-white to-brand-accent/15 p-12 text-center shadow-[0_35px_85px_rgba(108,74,224,0.2)] transition-colors duration-300 dark:border-brand-secondary/40 dark:from-brand-primary/25 dark:via-slate-950/70 dark:to-brand-accent/10 dark:text-white dark:shadow-[0_38px_95px_rgba(2,6,23,0.7)]"
       >
-        <div className="absolute -left-16 top-0 size-40 rounded-full bg-white/40 blur-2xl" />
-        <div className="absolute -right-10 bottom-0 size-56 rounded-full bg-brand-primary/20 blur-3xl" />
+        <motion.div
+          aria-hidden
+          className="absolute -left-16 top-0 size-40 rounded-full bg-white/40 blur-2xl"
+          style={{ y: leftOrbY }}
+        />
+        <motion.div
+          aria-hidden
+          className="absolute -right-10 bottom-0 size-56 rounded-full bg-brand-primary/20 blur-3xl"
+          style={{ y: rightOrbY }}
+        />
 
         <div className="relative space-y-6">
           <span className="section-label mx-auto flex w-max items-center gap-2 bg-white/60 dark:bg-slate-900/60">

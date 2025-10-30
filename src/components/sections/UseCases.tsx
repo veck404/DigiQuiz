@@ -1,13 +1,27 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { useCaseTracks } from "@/data/content";
+import { useParallax } from "@/hooks/useParallax";
 
 export function UseCases() {
+  const { ref, scrollYProgress } = useParallax<HTMLElement>(["start end", "end center"]);
+  const ribbonY = useTransform(scrollYProgress, [0, 1], [56, -36]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], [28, -22]);
+
   return (
-    <section id="use-cases" className="bg-slate-50 py-24 transition-colors duration-300 dark:bg-slate-950">
+    <section
+      id="use-cases"
+      ref={ref}
+      className="relative overflow-hidden bg-slate-50 py-24 transition-colors duration-300 dark:bg-slate-950"
+    >
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -right-32 top-10 h-96 w-96 rounded-full bg-brand-primary/10 blur-[120px] dark:bg-brand-primary/25"
+        style={{ y: ribbonY }}
+      />
       <div className="container">
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div className="mx-auto max-w-2xl text-center" style={{ y: cardsY }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -29,9 +43,9 @@ export function UseCases() {
           >
             One platform, limitless use-cases
           </motion.h2>
-        </div>
+        </motion.div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+        <motion.div className="mt-16 grid gap-8 lg:grid-cols-2" style={{ y: cardsY }}>
           {useCaseTracks.map((track, index) => (
             <motion.article
               key={track.title}
@@ -65,7 +79,7 @@ export function UseCases() {
               </div>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

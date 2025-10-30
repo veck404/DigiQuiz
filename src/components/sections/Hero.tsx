@@ -3,10 +3,11 @@
 
 // Import necessary hooks and libraries.
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion"; // For animations.
+import { motion, useTransform } from "framer-motion"; // For animations.
 import Lottie from "lottie-react"; // For rendering Lottie animations.
 import gsap from "gsap"; // For advanced animations.
 import studentAnimation from "@/data/animations/student.json"; // Lottie animation data.
+import { useParallax } from "@/hooks/useParallax";
 
 // Data for the hero section's highlight cards.
 const heroHighlights = [
@@ -22,6 +23,15 @@ const heroHighlights = [
 export function Hero() {
   // Ref to store the DOM elements of the highlight cards for animation.
   const cardsRef = useRef<HTMLDivElement[]>([]);
+  const { ref: sectionRef, scrollYProgress } = useParallax<HTMLDivElement>([
+    "start start",
+    "end center"
+  ]);
+  const backgroundY = useTransform(scrollYProgress, [0, 1], [-160, 120]);
+  const glowY = useTransform(scrollYProgress, [0, 1], [60, -40]);
+  const highlightsY = useTransform(scrollYProgress, [0, 1], [40, -20]);
+  const illustrationY = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const floatingNoteY = useTransform(scrollYProgress, [0, 1], [70, -50]);
 
   // Animate the highlight cards into view on component mount.
   useEffect(() => {
@@ -50,10 +60,21 @@ export function Hero() {
   return (
     <section
       id="hero"
+      ref={sectionRef}
       className="hero-gradient relative isolate overflow-hidden pb-24 pt-36 sm:pt-40 lg:pt-48"
     >
       {/* Background gradient that softly blends the text area into the illustration side */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-primary/18 via-brand-primary/12 to-transparent blur-3xl dark:from-brand-primary/28 dark:via-brand-primary/14 dark:to-transparent" />
+      <motion.div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-primary/18 via-brand-primary/12 to-transparent blur-3xl dark:from-brand-primary/28 dark:via-brand-primary/14 dark:to-transparent"
+        style={{ y: backgroundY }}
+      />
+      <motion.div
+        aria-hidden
+        className="absolute -left-16 top-10 -z-10 size-64 rounded-full bg-brand-secondary/60 blur-3xl dark:bg-brand-secondary/40"
+        style={{ y: glowY }}
+        transition={{ type: "spring", stiffness: 50 }}
+      />
 
       <div className="container relative grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         {/* Left column: Text content */}
@@ -114,7 +135,7 @@ export function Hero() {
           </motion.div>
 
           {/* Highlight cards section */}
-          <div className="grid gap-4 pt-2 sm:grid-cols-3">
+          <motion.div className="grid gap-4 pt-2 sm:grid-cols-3" style={{ y: highlightsY }}>
             {heroHighlights.map((highlight, index) => (
               <div
                 key={highlight.label}
@@ -136,7 +157,7 @@ export function Hero() {
                 <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-brand-primary/0 via-brand-primary/30 to-brand-primary/0" />
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Right column: Animated illustration */}
@@ -145,6 +166,7 @@ export function Hero() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
           className="relative flex items-center justify-center"
+          style={{ y: illustrationY }}
         >
           {/* Decorative background blur element */}
           <div className="absolute -right-20 top-16 hidden h-64 w-64 rounded-full bg-brand-primary/15 blur-3xl lg:block dark:bg-brand-primary/30" />
@@ -164,18 +186,25 @@ export function Hero() {
               style={{ height: "10%" }}
             />
             {/* Floating card with additional information */}
-            <div
+            <motion.div
               className="absolute left-1/2 w-[86%] max-w-lg -translate-x-1/2 overflow-hidden rounded-2xl bg-white/40 px-5 py-3 text-sm text-slate-700 shadow-lg backdrop-blur-sm dark:bg-slate-950/40 dark:text-slate-200"
               style={{ bottom: "-12%", maxHeight: "15%" }}
+              animate={{ y: [-8, 4, -8] }}
+              transition={{ repeat: Infinity, duration: 12, ease: "easeInOut" }}
             >
               <p className="font-semibold text-slate-900 dark:text-white">Guided learning journeys</p>
               <p className="text-xs text-slate-500 dark:text-slate-300">
                 Walk learners through story-driven quizzes, gentle progress checks, and instant feedback.
               </p>
-            </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>
+      <motion.span
+        aria-hidden
+        className="pointer-events-none absolute bottom-16 right-[12%] -z-10 hidden h-28 w-28 rotate-12 rounded-3xl border border-white/60 bg-white/50 backdrop-blur md:block dark:border-white/10 dark:bg-slate-900/50"
+        style={{ y: floatingNoteY }}
+      />
     </section>
   );
 }

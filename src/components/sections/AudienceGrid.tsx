@@ -1,12 +1,25 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { audienceHighlights } from "@/data/content";
+import { useParallax } from "@/hooks/useParallax";
 
 export function AudienceGrid() {
+  const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
+  const orbY = useTransform(scrollYProgress, [0, 1], [48, -32]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [24, -18]);
+
   return (
-    <section className="container relative z-10 -mt-8 rounded-[3rem] border border-slate-100 bg-white/90 p-10 shadow-[0_25px_65px_rgba(26,16,51,0.08)] backdrop-blur-lg dark:border-white/10 dark:bg-slate-900/70 dark:shadow-[0_35px_95px_rgba(2,6,23,0.6)]">
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    <section
+      ref={ref}
+      className="container relative z-10 -mt-8 overflow-hidden rounded-[3rem] border border-slate-100 bg-white/90 p-10 shadow-[0_25px_65px_rgba(26,16,51,0.08)] backdrop-blur-lg dark:border-white/10 dark:bg-slate-900/70 dark:shadow-[0_35px_95px_rgba(2,6,23,0.6)]"
+    >
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -left-20 top-12 size-48 rounded-full bg-brand-secondary/40 blur-3xl dark:bg-brand-secondary/30"
+        style={{ y: orbY }}
+      />
+      <motion.div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4" style={{ y: gridY }}>
         {audienceHighlights.map((item, index) => (
           <motion.div
             key={item.title}
@@ -25,7 +38,7 @@ export function AudienceGrid() {
             <p className="text-sm text-slate-500 dark:text-slate-300">{item.description}</p>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

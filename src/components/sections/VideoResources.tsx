@@ -1,12 +1,22 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { resourceVideos } from "@/data/content";
+import { useParallax } from "@/hooks/useParallax";
 
 export function VideoResources() {
+  const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
+  const accentY = useTransform(scrollYProgress, [0, 1], [42, -36]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [28, -22]);
+
   return (
-    <section className="container py-24">
-      <div className="mx-auto max-w-2xl text-center">
+    <section ref={ref} className="container relative overflow-hidden py-24">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-16 top-0 -z-20 h-80 rounded-full bg-brand-secondary/40 blur-3xl dark:bg-brand-secondary/30"
+        style={{ y: accentY }}
+      />
+      <motion.div className="mx-auto max-w-2xl text-center" style={{ y: gridY }}>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,9 +38,9 @@ export function VideoResources() {
         >
           See DigiQuiz in action
         </motion.h2>
-      </div>
+      </motion.div>
 
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
+      <motion.div className="mt-14 grid gap-6 md:grid-cols-2" style={{ y: gridY }}>
         {resourceVideos.map((resource, index) => (
           <motion.article
             key={resource.title + index}
@@ -53,7 +63,7 @@ export function VideoResources() {
             </div>
           </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

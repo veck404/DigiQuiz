@@ -1,12 +1,22 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { templateCollections } from "@/data/content";
+import { useParallax } from "@/hooks/useParallax";
 
 export function TemplatesShowcase() {
+  const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
+  const bubblesY = useTransform(scrollYProgress, [0, 1], [44, -32]);
+  const gridY = useTransform(scrollYProgress, [0, 1], [26, -20]);
+
   return (
-    <section id="templates" className="container py-24">
-      <div className="mx-auto max-w-2xl text-center">
+    <section id="templates" ref={ref} className="container relative overflow-hidden py-24">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-16 right-0 h-80 w-80 rounded-full bg-brand-accent/20 blur-3xl dark:bg-brand-accent/30"
+        style={{ y: bubblesY }}
+      />
+      <motion.div className="mx-auto max-w-2xl text-center" style={{ y: gridY }}>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -28,9 +38,9 @@ export function TemplatesShowcase() {
         >
           Launch-ready layouts for every audience
         </motion.h2>
-      </div>
+      </motion.div>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <motion.div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3" style={{ y: gridY }}>
         {templateCollections.map((template, index) => (
           <motion.div
             key={template.label}
@@ -50,7 +60,7 @@ export function TemplatesShowcase() {
             </div>
           </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

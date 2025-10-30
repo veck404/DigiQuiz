@@ -1,12 +1,23 @@
 'use client';
 
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
 import { featureCards, featurePills } from "@/data/content";
+import { useParallax } from "@/hooks/useParallax";
 
 export function FeaturesShowcase() {
+  const { ref, scrollYProgress } = useParallax<HTMLDivElement>(["start end", "end center"]);
+  const haloY = useTransform(scrollYProgress, [0, 1], [-60, 40]);
+  const headingY = useTransform(scrollYProgress, [0, 1], [18, -18]);
+  const cardsY = useTransform(scrollYProgress, [0, 1], [32, -24]);
+
   return (
-    <section id="features" className="container py-24">
-      <div className="mx-auto max-w-3xl text-center">
+    <section id="features" ref={ref} className="container relative overflow-hidden py-24">
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-10 -z-10 mx-auto h-96 w-[80%] rounded-full bg-brand-secondary/40 blur-3xl dark:bg-brand-secondary/30"
+        style={{ y: haloY }}
+      />
+      <motion.div className="mx-auto max-w-3xl text-center" style={{ y: headingY }}>
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -55,9 +66,9 @@ export function FeaturesShowcase() {
             </span>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
 
-      <div className="mt-16 grid gap-6 lg:grid-cols-2">
+      <motion.div className="mt-16 grid gap-6 lg:grid-cols-2" style={{ y: cardsY }}>
         {featureCards.map((card, index) => (
           <motion.article
             key={card.title}
@@ -77,7 +88,7 @@ export function FeaturesShowcase() {
             </div>
           </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
