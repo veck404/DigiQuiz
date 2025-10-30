@@ -3,7 +3,8 @@
 import { useRef } from "react";
 import { useScroll, useSpring, type MotionValue } from "framer-motion";
 
-type Offset = Parameters<typeof useScroll>[0]["offset"];
+type ScrollOptions = NonNullable<Parameters<typeof useScroll>[0]>;
+type Offset = ScrollOptions["offset"];
 type SpringOptions = NonNullable<Parameters<typeof useSpring>[1]>;
 
 const DEFAULT_SPRING: SpringOptions = {
