@@ -86,7 +86,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="section-label w-fit"
           >
-            <span className="size-2 rounded-full bg-brand-primary" />
+            {/* <span className="size-2 rounded-full bg-brand-primary" /> */}
             {/* <span className="uppercase tracking-[0.2em] text-xs text-slate-700">Audience engagement</span> */}
           </motion.div>
 
