@@ -97,7 +97,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-4xl font-display leading-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white"
           >
-            The playful way to{" "}
+            The playful way to
             <span className="text-gradient">engage, educate, and convert</span> every audience.
           </motion.h1>
 
