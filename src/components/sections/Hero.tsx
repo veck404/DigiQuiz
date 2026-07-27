@@ -80,15 +80,15 @@ export function Hero() {
         {/* Left column: Text content */}
         <div className="space-y-8 text-slate-900 dark:text-slate-100">
           {/* Section label with a subtle animation */}
-          {/* <motion.div
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="section-label w-fit"
           >
-            {/* <span className="size-2 rounded-full bg-brand-primary" /> */}
-            {/* <span className="uppercase tracking-[0.2em] text-xs text-slate-700">Audience engagement</span> */}
-          </motion.div> */}
+            {/* <span className="size-2 rounded-full bg-brand-primary" />
+            <span className="uppercase tracking-[0.2em] text-xs text-slate-700">Audience engagement</span> */}
+          </motion.div>
 
           {/* Main headline with animation */}
           <motion.h1
@@ -97,7 +97,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="text-4xl font-display leading-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white"
           >
-            The playful way to
+            The playful way to{" "}
             <span className="text-gradient">engage, educate, and convert</span> every audience.
           </motion.h1>
 
