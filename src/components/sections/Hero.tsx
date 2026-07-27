@@ -80,7 +80,7 @@ export function Hero() {
         {/* Left column: Text content */}
         <div className="space-y-8 text-slate-900 dark:text-slate-100">
           {/* Section label with a subtle animation */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -88,7 +88,7 @@ export function Hero() {
           >
             {/* <span className="size-2 rounded-full bg-brand-primary" /> */}
             {/* <span className="uppercase tracking-[0.2em] text-xs text-slate-700">Audience engagement</span> */}
-          </motion.div>
+          </motion.div> */}
 
           {/* Main headline with animation */}
           <motion.h1
